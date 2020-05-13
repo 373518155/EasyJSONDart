@@ -434,4 +434,8 @@ class JSONArray {
     bool equals(Object o) {
         return (o is JSONArray) && o.values == values;
     }
+
+    List<Object> getList() {
+        return values;
+    }
 }

@@ -172,7 +172,13 @@ class EasyJSONArray extends EasyJSONBase implements Iterable<Object> {
       var len = jsonArray.length();
       for (var i = 0; i < len; i++) {
         var elem = jsonArray.get(i);
-        f(elem);
+        if (elem is JSONObject) {
+          f(EasyJSONObject(map: elem.getHashMap()));
+        } else if (elem is JSONArray) {
+          f(EasyJSONArray(iterable: elem.getList()));
+        } else {
+          f(elem);
+        }
       }
     }
   }
