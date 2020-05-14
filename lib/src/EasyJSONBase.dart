@@ -245,7 +245,11 @@ class EasyJSONBase {
 
 
     String getString(Object path) {
-        return get(path);
+        var result = get(path);
+        if (result is JSONObjectNULL) {
+            return null;
+        }
+        return result;
     }
 
     /**
