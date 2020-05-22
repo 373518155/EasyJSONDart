@@ -271,10 +271,9 @@ class JSONStringer {
              */
             switch (c) {
                 case Ascii.CODE_DOUBLE_QUOTES: // 双引号 "
-                case Ascii.CODE_BACK_SLASH:
-                case Ascii.CODE_SLASH: // 斜杠 /
+                case Ascii.CODE_BACK_SLASH: // 反斜杠 \
                     out.write('\\');
-                    out.write(c);
+                    out.write(String.fromCharCode(c));
                     break;
 
                 case Ascii.CODE_HT:
